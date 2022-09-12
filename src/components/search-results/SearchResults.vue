@@ -6,7 +6,7 @@
       <h5>Place Name</h5>
       <p>Sint incididunt enim dolore est aliquip incididunt eiusmod.</p>
       <div>
-        <button class="btn btn-outline-primary">
+        <button class="btn btn-outline-primary btn-sm">
           Directions
         </button>
       </div>
@@ -15,7 +15,7 @@
       <h5>Place Name</h5>
       <p>Sint incididunt enim dolore est aliquip incididunt eiusmod.</p>
       <div>
-        <button class="btn btn-outline-primary">
+        <button class="btn btn-outline-primary btn-sm">
           Directions
         </button>
       </div>
@@ -24,7 +24,7 @@
       <h5>Place Name</h5>
       <p>Sint incididunt enim dolore est aliquip incididunt eiusmod.</p>
       <div>
-        <button class="btn btn-outline-primary">
+        <button class="btn btn-outline-primary btn-sm">
           Directions
         </button>
       </div>
@@ -32,3 +32,16 @@
   </ul>
 </template>
 
+<style scoped>
+li {
+  cursor: pointer;
+}
+
+h5 {
+  font-size: 15px !important;
+}
+
+p {
+  font-size: 10px;
+}
+</style>

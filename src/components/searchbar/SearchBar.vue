@@ -7,8 +7,10 @@
     <input
       class="form-control"
       type="text"
-      placeholder="Look for a place...">
+      placeholder="Look for a place..."
+      v-model="searchTerm">
 
+    {{ searchTerm }}
     <SearchResults />
   </div>
 </template>
