@@ -1,14 +1,32 @@
 <script lang="ts" src="./MapView.ts" />
 
 <template>
-  <h1>MapView</h1>
-  <p>
-    {{ isLoading }}
-    {{ userLocation }}
-    {{ isUserLocationReady }}
-  </p>
+  <div v-if="!isUserLocationReady" class="loading-map d-flex justify-content-center align-items-center">
+    <div class="text-center">
+      <h3>
+        Please wait
+      </h3>
+      <span>Locating...</span>
+    </div>
+  </div>
+
+  <div v-show="isUserLocationReady" class="map-container" ref="mapElement" />
 </template>
 
 <style scoped>
-
+.map-container {
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+}
+.loading-map {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  height: 100vh;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 9999;
+}
 </style>
