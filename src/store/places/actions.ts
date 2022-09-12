@@ -6,7 +6,7 @@ const actions: ActionTree<PlacesState, StateInterface> = {
   getInitialLocation({ commit }) {
     // TODO: set loading
     navigator.geolocation.getCurrentPosition(
-      ({ coords }) => commit('setLngLat', coords),
+      ({ coords }) => commit('setLngLat', { lng: coords.longitude, lat: coords.latitude }),
       ( error ) => {
         console.log(error);
         throw new Error('No geolocation');
