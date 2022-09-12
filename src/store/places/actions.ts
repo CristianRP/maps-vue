@@ -13,6 +13,10 @@ const actions: ActionTree<PlacesState, StateInterface> = {
       }
     );
   },
+
+  async searchPlacesByTerm({ commit, state }, query: string ) {
+    console.log('vuex:', query);
+  }
 };
 
 export default actions;

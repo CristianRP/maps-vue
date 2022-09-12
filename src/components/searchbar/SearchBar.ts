@@ -1,3 +1,4 @@
+import { usePlacesStore } from '@/composables';
 import { computed, defineComponent, ref } from 'vue'
 import SearchResults from '../search-results/SearchResults.vue';
 
@@ -11,8 +12,10 @@ export default defineComponent({
     const debounceTimeout = ref()
     const debouncedValue = ref('')
 
+    const { searchPlacesByTerm } = usePlacesStore();
+
     return {
-      debouncedValue,
+      searchPlacesByTerm,
 
       searchTerm: computed({
         get() {
@@ -24,7 +27,8 @@ export default defineComponent({
 
           debounceTimeout.value = setTimeout(() => {
             debouncedValue.value = val
-          }, 2000);
+            searchPlacesByTerm( val )
+          }, 500);
         }
       })
     }
