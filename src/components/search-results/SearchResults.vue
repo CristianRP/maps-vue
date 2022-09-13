@@ -1,30 +1,23 @@
 <script lang="ts" src="./SearchResults" />
 
 <template>
-  <ul class="list-group mt-3">
-    <li class="list-group-item list-group-item-action">
-      <h5>Place Name</h5>
-      <p>Sint incididunt enim dolore est aliquip incididunt eiusmod.</p>
-      <div>
-        <button class="btn btn-outline-primary btn-sm">
-          Directions
-        </button>
-      </div>
-    </li>
-    <li class="list-group-item list-group-item-action">
-      <h5>Place Name</h5>
-      <p>Sint incididunt enim dolore est aliquip incididunt eiusmod.</p>
-      <div>
-        <button class="btn btn-outline-primary btn-sm">
-          Directions
-        </button>
-      </div>
-    </li>
-    <li class="list-group-item list-group-item-action">
-      <h5>Place Name</h5>
-      <p>Sint incididunt enim dolore est aliquip incididunt eiusmod.</p>
-      <div>
-        <button class="btn btn-outline-primary btn-sm">
+  <div v-if="isLoadingPlaces" class="alert alert-primary text-center">
+    <h5>Loading</h5>
+    <span>Please wait...</span>
+  </div>
+  <ul v-else-if="places.length > 0" class="list-group mt-3">
+    <li
+      v-for="place in places"
+      class="list-group-item list-group-item-action"
+      :class="{ 'active': place.id === activePlace }"
+      :key="place.id"
+      @click="onPlaceClicked(place)">
+      <h5> {{ place.text }} </h5>
+      <p>{{ place.place_name }}</p>
+      <div align="right">
+        <button
+          class="btn btn-outline-primary btn-sm"
+          :class="(place.id === activePlace) ? 'btn-outline-light' : 'btn-outline-primary'">
           Directions
         </button>
       </div>

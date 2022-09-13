@@ -10,7 +10,6 @@
       placeholder="Look for a place..."
       v-model="searchTerm">
 
-    {{ searchTerm }}
     <SearchResults />
   </div>
 </template>
